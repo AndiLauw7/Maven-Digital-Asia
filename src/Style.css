@@ -46,6 +46,7 @@
     background-color: rgba(0, 0, 0, 0.838);
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
+    color: white;
 }
 
 .item {
@@ -148,6 +149,7 @@ div.bodyItem {
 
 .rating {
     padding-left: 10px;
+    font-size: 15px;
 }
 
 .content {
@@ -278,6 +280,7 @@ div.bodyItem {
     font-weight: 200;
     top: 28rem;
     left: 555px;
+    color: white;
 }
 
 .box {
@@ -315,9 +318,9 @@ div.bodyItem {
 }
 
 .fotter {
-    color: white;
+    color: rgb(125, 123, 123);
     font-weight: 500;
     font-size: 15px;
     padding-top: 10px;
-    border-top: 1px solid rgb(170, 164, 164);
+    border-top: 1px solid rgb(125, 123, 123);
 }

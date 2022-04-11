@@ -7,8 +7,10 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
+import { useNavigate } from "react-router-dom";
 
-export const Auth = () => {
+export const Auth = (props) => {
+  // const navigate = useNavigate();
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
@@ -25,6 +27,10 @@ export const Auth = () => {
   const handlePasswordChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
+
+  // const handleLogin = () => {
+  //   navigate("/");
+  // };
 
   return (
     <div className="cover">
@@ -94,6 +100,7 @@ export const Auth = () => {
                   borderRadius: "20px",
                 }}
                 // onClick={handleLogin}
+                onClick={props.login}
               >
                 <h5 className="text" style={{ backgroundColor: "#2CBAD5" }}>
                   Sign In
