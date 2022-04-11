@@ -1,16 +1,26 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { NavHome } from "../components/Navbar";
 import "../Style.css";
 import { motion } from "framer-motion";
 import { posts } from "../data.js";
 import { MdOutlineStarPurple500 } from "react-icons/md";
-import logo from "../assets/7.jpg";
+import logo from "../assets/vincenzo.jpeg";
 import { data } from "../dataMost";
+import { dataPiks } from "../dataPiks";
 
 export const Home = () => {
   const [width, setWidth] = useState(0);
   const carousel = useRef();
+  const [witdh, setWitdh] = useState(0);
+  const carouselBody = useRef();
+
+  useEffect(() => {
+    console.log(carouselBody.current.scrollWidth);
+    setWitdh(
+      carouselBody.current.scrollWidth - carouselBody.current.offsetWidth
+    );
+  }, []);
 
   useEffect(() => {
     console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
@@ -21,13 +31,15 @@ export const Home = () => {
       <NavHome />
       <Container fluid className="bodyHome mt-5 mb-5">
         <Container>
-          <Row className="bodyTop ">
-            <Col className="bodyItem ">
+          <Row className="bodyTop text-center">
+            <Col md={8} sm={12} className="bodyItem mb-4 ">
               <p
-                className="title text-start text-white mb-1 "
+                className="title text-start text-white mb-3 "
                 style={{
                   fontWeight: "bolder",
                   fontSize: "21px",
+                  padding: "0",
+                  margin: "0",
                 }}
               >
                 NEWCOMERS
@@ -49,19 +61,21 @@ export const Home = () => {
                           <MdOutlineStarPurple500 className="text-warning" />{" "}
                           <span className="rating">{post.rating}</span>
                         </p>
-                        <hr />
                       </motion.div>
                     );
                   })}
                 </motion.div>
+                <hr />
               </motion.div>
             </Col>
-            <Col className="bodyItem">
+            <Col md={3} sm={12} className="bodyItem text-center">
               <p
-                className="title text-start text-white"
+                className="title text-start text-white mb-3"
                 style={{
                   fontWeight: "bolder",
                   fontSize: "20px",
+                  padding: "0",
+                  margin: "0",
                 }}
               >
                 MOST VIEWED MOVIE
@@ -89,6 +103,63 @@ export const Home = () => {
               </div>
             </Col>
           </Row>
+          <Container fluid>
+            <Row>
+              <Col className="bodyTop mt-5">
+                <motion.div ref={carouselBody} className="carouselBody">
+                  <motion.div
+                    drag="x"
+                    dragConstraints={{ right: 0, left: -witdh }}
+                    className="innerBody"
+                  >
+                    {dataPiks.map((piks) => {
+                      return (
+                        <motion.div className="content" key={piks}>
+                          <Card className="bg-dark text-white">
+                            <Card.Img src={piks.image} alt="Card image" />
+                            <Card.ImgOverlay>
+                              <Card.Title className="topText">
+                                {piks.title}
+                              </Card.Title>
+                              <Card.Title className="midText">
+                                {piks.titleMid}
+                              </Card.Title>
+                              <Card.Title className="botText">
+                                {piks.titleBot}
+                              </Card.Title>
+                              <Card.Title className="button">
+                                View Info
+                              </Card.Title>
+                              <Card.Title className="Watch">
+                                Watch Trailer
+                              </Card.Title>
+                              <Card.Title className="WatchList">
+                                + Watch List
+                              </Card.Title>
+                              <Card.Title className="ratinContent">
+                                <MdOutlineStarPurple500 className="text-warning" />
+                                {piks.rating}
+                              </Card.Title>
+
+                              <Card.Text className="TextContent">
+                                At the age of 8, Park Joo-Hyeong went to Italy
+                                after he was adopted. He is now an adult and has
+                                the name <br /> of Vincenzo Cassano (Song
+                                Joong-Ki). He is a lawyer, who works for the
+                                Mafia as a consigliere. <br /> Because of a war
+                                between mafia groups, he flees to South Korea.
+                              </Card.Text>
+                            </Card.ImgOverlay>
+                          </Card>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+                  <hr />
+                </motion.div>
+              </Col>
+            </Row>
+          </Container>
         </Container>
       </Container>
     </div>

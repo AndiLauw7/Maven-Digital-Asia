@@ -1,11 +1,12 @@
-import images7 from "../src/assets/7.jpg";
-import images6 from "../src/assets/6.jpg";
-import images1 from "../src/assets/1.jpeg";
+import images7 from "../src/assets/vincenzo.jpeg";
+import images9 from "../src/assets/9.jpeg";
 
-export const data = [
+export const dataPiks = [
   {
     id: 1,
-    title: "Vincenzo",
+    title: "TOP PIKS",
+    titleMid: "VINCENZO",
+    titleBot: "VINCENZO",
     image: images7,
     rating: 8.5,
     longDesc:
@@ -13,16 +14,16 @@ export const data = [
   },
   {
     id: 2,
-    title: "Space Sweepers",
-    image: images6,
+    title: "TOP PIKS",
+    image: images9,
     rating: 8.5,
     longDesc:
       " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, harum? Veniam deleniti error eaque delectus, dignissimos, quae laborum non nobis magnam autem fugiat iste vero perspiciatis excepturi molestias aliquam dicta?  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, harum? Veniam deleniti error eaque delectus, dignissimos, quae laborum non nobis magnam autem fugiat iste vero perspiciatis excepturi molestias aliquam dicta?",
   },
   {
     id: 3,
-    title: "My Love Another Star",
-    image: images1,
+    title: "TOP PIKS",
+    image: images7,
     rating: 8.5,
     longDesc:
       " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, harum? Veniam deleniti error eaque delectus, dignissimos, quae laborum non nobis magnam autem fugiat iste vero perspiciatis excepturi molestias aliquam dicta?  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, harum? Veniam deleniti error eaque delectus, dignissimos, quae laborum non nobis magnam autem fugiat iste vero perspiciatis excepturi molestias aliquam dicta?",
