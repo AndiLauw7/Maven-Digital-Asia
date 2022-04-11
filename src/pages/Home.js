@@ -2,19 +2,19 @@ import React, { useRef, useState, useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { NavHome } from "../components/Navbar";
 import "../Style.css";
+import { data } from "../dataMost";
+import { BrowseTrailer } from "./BrowseTrailer";
+import { dataPiks } from "../dataPiks";
 import { motion } from "framer-motion";
 import { posts } from "../data.js";
 import { MdOutlineStarPurple500 } from "react-icons/md";
-import logo from "../assets/vincenzo.jpeg";
-import { data } from "../dataMost";
-import { dataPiks } from "../dataPiks";
 
 export const Home = () => {
   const [width, setWidth] = useState(0);
   const carousel = useRef();
+
   const [witdh, setWitdh] = useState(0);
   const carouselBody = useRef();
-
   useEffect(() => {
     console.log(carouselBody.current.scrollWidth);
     setWitdh(
@@ -30,9 +30,9 @@ export const Home = () => {
     <div>
       <NavHome />
       <Container fluid className="bodyHome mt-5 mb-5">
-        <Container>
+        <Container className="text-center">
           <Row className="bodyTop text-center">
-            <Col md={8} sm={12} className="bodyItem mb-4 ">
+            <Col md={8} sm={12} className="bodyItem mb-4 text-center ">
               <p
                 className="title text-start text-white mb-3 "
                 style={{
@@ -65,7 +65,6 @@ export const Home = () => {
                     );
                   })}
                 </motion.div>
-                <hr />
               </motion.div>
             </Col>
             <Col md={3} sm={12} className="bodyItem text-center">
@@ -80,7 +79,7 @@ export const Home = () => {
               >
                 MOST VIEWED MOVIE
               </p>
-              <div className="first">
+              <div className="first text-center">
                 <div className="second">
                   <div className="thereItem">
                     {data.map((datas) => {
@@ -115,7 +114,7 @@ export const Home = () => {
                     {dataPiks.map((piks) => {
                       return (
                         <motion.div className="content" key={piks}>
-                          <Card className="bg-dark text-white">
+                          <Card className="bodyContent">
                             <Card.Img src={piks.image} alt="Card image" />
                             <Card.ImgOverlay>
                               <Card.Title className="topText">
@@ -155,11 +154,15 @@ export const Home = () => {
                       );
                     })}
                   </motion.div>
-                  <hr />
                 </motion.div>
               </Col>
             </Row>
           </Container>
+          <Row>
+            <Col className="bodyTop mt-5">
+              <BrowseTrailer />
+            </Col>
+          </Row>
         </Container>
       </Container>
     </div>

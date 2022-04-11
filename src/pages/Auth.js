@@ -25,6 +25,7 @@ export const Auth = () => {
   const handlePasswordChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
+
   return (
     <div className="cover">
       <Container>
