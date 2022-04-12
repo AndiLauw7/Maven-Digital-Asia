@@ -1,7 +1,7 @@
 import React from "react";
 import { data } from "../dataMost";
 import { MdOutlineStarPurple500 } from "react-icons/md";
-
+import logo from "../assets/start1.png";
 export const MostViewd = () => {
   return (
     <div>
@@ -28,8 +28,8 @@ export const MostViewd = () => {
                   <div className="mid">
                     <p className="second-text">{datas.title}</p>
                     <p className="there-white">
-                      <MdOutlineStarPurple500 className="text-warning" />
-                      <span className="rating">8.5</span>
+                      <img src={logo} alt="" />
+                      <span className="rating1">8.5</span>
                     </p>
                   </div>
                 </div>

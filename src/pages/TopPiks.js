@@ -4,6 +4,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { dataPiks } from "../dataPiks";
 import { MdOutlineStarPurple500 } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 export const TopPiks = () => {
   const [witdh, setWitdh] = useState(0);
   const carouselBody = useRef();
@@ -13,6 +14,12 @@ export const TopPiks = () => {
       carouselBody.current.scrollWidth - carouselBody.current.offsetWidth
     );
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleDetail = () => {
+    navigate("/detail");
+  };
   return (
     <div>
       {" "}
@@ -24,7 +31,7 @@ export const TopPiks = () => {
         >
           {dataPiks.map((piks) => {
             return (
-              <motion.div className="content" key={piks}>
+              <motion.div className="content" key={piks} onClick={handleDetail}>
                 <Card className="bodyContent">
                   <Card.Img src={piks.image} alt="Card image" />
                   <Card.ImgOverlay>

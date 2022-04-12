@@ -7,8 +7,15 @@ import { NewComers } from "./NewComers";
 import { MostViewd } from "./MostViewd";
 import { TopPiks } from "./TopPiks";
 import { Footer } from "../components/Footer";
+import { Router } from "@material-ui/icons";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Home = (props) => {
+  const navigate = useNavigate();
+
+  const handleDetail = () => {
+    navigate("/detail");
+  };
   return (
     <div>
       <NavHome />
@@ -16,7 +23,9 @@ export const Home = (props) => {
         <Container className="text-center">
           <Row className="bodyTop text-center">
             <Col md={8} sm={12} className="bodyItem mb-4 text-center ">
+              {/* <Link to="/detail"> */}
               <NewComers />
+              {/* </Link> */}
             </Col>
             <Col md={3} sm={12} className="bodyItem text-center">
               <MostViewd />

@@ -3,6 +3,15 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { posts } from "../data.js";
 import { motion } from "framer-motion";
 import { MdOutlineStarPurple500 } from "react-icons/md";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import { Detail } from "./Detail.js";
+import star from "../assets/start1.png";
 
 export const NewComers = () => {
   const [width, setWidth] = useState(0);
@@ -12,6 +21,12 @@ export const NewComers = () => {
     console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleDetail = () => {
+    navigate("/detail");
+  };
   return (
     <div>
       <p
@@ -33,14 +48,15 @@ export const NewComers = () => {
         >
           {posts.map((post) => {
             return (
-              <motion.div className="item" key={post}>
+              <motion.div className="item" key={post} onClick={handleDetail}>
                 <img src={post.image} alt="" />
                 <p className="text-start mt-1 text-white fw-bold fs-15 mb-1">
                   {post.title}
                 </p>
+
                 <p className="start-first ">
-                  <MdOutlineStarPurple500 className="text-warning" />{" "}
-                  <span className="rating">{post.rating}</span>
+                  <img src={star} alt="" />
+                  <span className="rating1">{post.rating}</span>
                 </p>
               </motion.div>
             );

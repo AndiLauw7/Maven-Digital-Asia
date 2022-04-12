@@ -62,35 +62,23 @@ export const Auth = (props) => {
                   placeholder="Email"
                 />
               </Form.Group>
-
-              <Form.Group
-                as={Row}
-                className="mb-1"
-                controlId="formPlaintextPassword"
-              >
-                {" "}
-                <Input
-                  className="password"
-                  type={values.showPassword ? "text" : "password"}
-                  onChange={handlePasswordChange("password")}
-                  value={values.password}
-                  placeholder="Password"
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </Form.Group>
+              <Input
+                className="password"
+                type={values.showPassword ? "text" : "password"}
+                onChange={handlePasswordChange("password")}
+                value={values.password}
+                placeholder="Password"
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
               <p className="text-end text-muted ">Forgot Password?</p>
               <Button
                 className="mb-5 p-2 mt-"
